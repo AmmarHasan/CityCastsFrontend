@@ -1,6 +1,7 @@
-# CityCasts
+# Cloud Computing - HS Fulda SS18
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+## City Casts Frontend
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4. and serves as the frontend for [City Casts backend in Angular 5](https://github.com/AmmarHasan/CityCastsBackend).
 
 ## Development server
 
