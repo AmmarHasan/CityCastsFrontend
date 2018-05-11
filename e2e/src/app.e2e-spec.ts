@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('city-casts App', () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
