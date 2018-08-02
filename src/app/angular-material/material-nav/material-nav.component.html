@@ -2,6 +2,18 @@
     <mat-toolbar color="primary" class="toolbar mat-elevation-z6">
       <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="app-name">City Casts</h1>
+      <span style="flex:1 1 auto"></span>
+      <a mat-button (click)="sidenav.toggle()">
+          <span>Login</span>
+      </a>
+      <a mat-icon-button [matMenuTriggerFor]="menu">
+          <!-- min-width: 46px; padding: 2px; -->
+        <img style="height: 32px;" src="../../../assets/img/github.png"/>
+      </a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
     </mat-toolbar>
 
     <mat-sidenav-container class="sidenav-container"
