@@ -5,18 +5,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
+  MatMenuModule, MatCardModule, MatBadgeModule, MatSelectModule, MatInputModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from './routing/routing.module';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { CastComponent } from './cast/cast.component';
+import { NewCastComponent } from './new-cast/new-cast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CastComponent,
+    NewCastComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,11 @@ import { SignupComponent } from './signup/signup.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule,
+    MatBadgeModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [
