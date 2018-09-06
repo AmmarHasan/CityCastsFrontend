@@ -4,6 +4,7 @@ import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
 import { NewCastComponent } from '../new-cast/new-cast.component';
+import { AuthGuard } from '../_guard/auth.guard';
 
 
 const routes: Routes = [
@@ -18,10 +19,12 @@ const routes: Routes = [
   {
       path: 'new',
       component: NewCastComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: '',
       component: HomeComponent,
+      canActivate: [AuthGuard]
   },
 ];
 
@@ -31,6 +34,9 @@ const routes: Routes = [
   ],
   exports: [
       RouterModule
+  ],
+  providers: [
+      AuthGuard
   ],
   declarations: []
 })
