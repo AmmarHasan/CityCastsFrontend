@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
   MatMenuModule, MatCardModule, MatBadgeModule, MatSelectModule, MatInputModule} from '@angular/material';
@@ -28,6 +29,7 @@ import { NewCastComponent } from './new-cast/new-cast.component';
     BrowserAnimationsModule,
     CommonModule,
     RoutingModule,
+    HttpClientModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -42,8 +44,7 @@ import { NewCastComponent } from './new-cast/new-cast.component';
   ],
   providers: [],
   bootstrap: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ]
 })
 export class AppModule { }

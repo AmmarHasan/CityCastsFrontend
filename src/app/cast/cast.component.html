@@ -1,39 +1,29 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Abc Wagner</mat-card-title>
-    <mat-card-subtitle>{{today | date: 'medium'}}</mat-card-subtitle>
+    <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url('+ cast.createdBy.avatar + ')'}"></div>
+    <mat-card-title>{{cast.createdBy.name}}</mat-card-title>
+    <mat-card-subtitle>{{cast.createdAt | date: 'medium'}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
+    <p> {{cast.description}} </p>
   </mat-card-content>
   <div class="card-image-list">
-    <div class="card-image-wrapper">
-      <img src="https://images.pexels.com/photos/658687/pexels-photo-658687.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Photo of a Shiba Inu">
-    </div>
-    <div class="card-image-wrapper">
-      <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Photo of a Shiba Inu">
-    </div>
-    <div class="card-image-wrapper">
-      <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <div class="card-image-wrapper" *ngFor="let image of cast.images">
+      <img src="{{image}}">
     </div>
   </div>
   <mat-list>
     <mat-divider [inset]="true"></mat-divider>
-    <mat-list-item>City: <b> Fulda</b></mat-list-item>
+    <mat-list-item>City: <b> {{cast.city}} </b></mat-list-item>
     <mat-divider [inset]="true"></mat-divider>
   </mat-list>
   <mat-card-actions class="cast-actions">
-    <button class="button-upvote" mat-raised-button matBadge="8" matBadgePosition="after" matBadgeColor="accent">
+    <button class="button-upvote" mat-raised-button matBadge="{{cast.upvote.length}}" matBadgePosition="after" matBadgeColor="accent">
       UPVOTE
     </button>
-    <button class="button-solve" mat-raised-button>SOLVE</button>
+    <button class="button-solve" mat-raised-button *ngIf="!cast.solved">SOLVE</button>
     <span style="flex:1 1 auto"></span>
-    <span class="solved">
+    <span class="solved" *ngIf="cast.solved">
       <mat-icon>done</mat-icon>
       <p>Solved</p>
     </span>

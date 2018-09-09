@@ -1,19 +1,23 @@
-export class User {
+export class Citizen {
   name: String;
   username: String;
   password: String;
   avatar: String;
+  email: String;
+  id: String;
 }
 
 export class Cast {
-  id: String;
-  createdBy: User;
-  createdAt: Date;
-  description: String;
-  city: String;
-  lat: Number;
-  long: Number;
-  images: Array<String>;
-  upvote: Array<User>;
-  solved: Boolean;
+  constructor(
+    public description: String,
+    public createdBy: Citizen,
+    public createdAt: Date,
+    public city: String,
+    public images?: Array<String>,
+    public latitude?: Number,
+    public longitude?: Number,
+    public upvote?: Array<Citizen>,
+    public solved?: Boolean,
+    public id?: String
+  ) { }
 }
