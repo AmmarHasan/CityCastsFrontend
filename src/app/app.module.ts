@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CastComponent } from './cast/cast.component';
 import { NewCastComponent } from './new-cast/new-cast.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ImageUploadModule } from 'angular2-image-upload';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,13 @@ import { NewCastComponent } from './new-cast/new-cast.component';
     NewCastComponent
   ],
   imports: [
+    ImageUploadModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     RoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     LayoutModule,
     MatToolbarModule,

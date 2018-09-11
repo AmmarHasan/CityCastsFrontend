@@ -14,21 +14,26 @@
 
     <mat-sidenav-container class="sidenav-container">
       <mat-sidenav-content style="display: flex; flex-direction: column; align-items: center;">
+        <form [formGroup]="newCast" (ngSubmit)="createNewCast()">
           <mat-card class="example-card">
             <mat-form-field>
-              <textarea matInput placeholder="Description"></textarea>
+              <textarea matInput placeholder="Description" formControlName="description"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <mat-select placeholder="City">
-                    <mat-option *ngFor="let city of cities" [value]="city"> {{ city }} </mat-option>
-                </mat-select>
-              </mat-form-field>
+              <mat-select placeholder="City" formControlName="city">
+                  <mat-option *ngFor="let city of cities" [value]="city"> {{ city }} </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <image-upload url="http://localhost:3000/api/imageUpload"
+            (removed)="onImageRemoved($event)"
+            (uploadFinished)="onImageUploaded($event)"></image-upload>
             <mat-card-actions class="cast-actions">
-              <button class="button-post" mat-raised-button>
+              <button class="button-post" mat-raised-button type="submit" [disabled]="newCast.invalid">
                 Post
               </button>
             </mat-card-actions>
           </mat-card>
+        </form>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
