@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Cast } from '../../model';
+import { CastService } from '../_service/cast.service';
 
 @Component({
   selector: 'app-cast',
@@ -8,7 +9,17 @@ import { Cast } from '../../model';
 })
 export class CastComponent {
   @Input() cast: Cast;
-  today;
+  currentUser;
 
-  constructor() { }
+  constructor(private castService: CastService) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  solve() {
+    this.castService.solveCast(this.cast).subscribe(data => {
+      console.log('solved');
+
+      this.cast.solved = true;
+    });
+  }
 }

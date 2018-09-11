@@ -21,7 +21,10 @@
     <button class="button-upvote" mat-raised-button matBadge="{{cast.upvote.length}}" matBadgePosition="after" matBadgeColor="accent">
       UPVOTE
     </button>
-    <button class="button-solve" mat-raised-button *ngIf="!cast.solved">SOLVE</button>
+    <button class="button-solve" mat-raised-button (click)="solve()"
+      *ngIf="!cast.solved && cast.createdBy.username === currentUser.username">
+      SOLVE
+    </button>
     <span style="flex:1 1 auto"></span>
     <span class="solved" *ngIf="cast.solved">
       <mat-icon>done</mat-icon>

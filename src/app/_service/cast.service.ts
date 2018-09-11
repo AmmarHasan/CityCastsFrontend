@@ -17,4 +17,9 @@ export class CastService {
   createCast(formData) {
     return this.http.post('http://localhost:3000/api/casts', formData);
   }
+
+  solveCast(cast: Cast) {
+    cast.solved = true;
+    return this.http.put('http://localhost:3000/api/casts', cast);
+  }
 }
