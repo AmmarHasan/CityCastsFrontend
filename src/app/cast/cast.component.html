@@ -1,6 +1,9 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url('+ cast.createdBy.avatar + ')'}"></div>
+    <!-- <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url('+ cast.createdBy.avatar + ')'}"></div> -->
+    <div mat-card-avatar class="example-header-image">
+      <img ngxGravatar class="example-header-image" [email]="cast.createdBy.email" size="40">
+    </div>
     <mat-card-title>{{cast.createdBy.name}}</mat-card-title>
     <mat-card-subtitle>{{cast.createdAt | date: 'medium'}}</mat-card-subtitle>
   </mat-card-header>

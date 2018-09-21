@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { Cast } from '../../model';
+import { Cast, User } from '../../model';
 import { CastService } from '../_service/cast.service';
 
 @Component({
@@ -11,12 +11,6 @@ import { CastService } from '../_service/cast.service';
 })
 export class HomeComponent implements OnInit {
   mobileQuery: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
-
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    private castService: CastService
-  ) { }
-
   cities = [
     'Fulda',
     'Frankfurt',
@@ -24,6 +18,14 @@ export class HomeComponent implements OnInit {
     'Munich'
   ];
   casts: Observable<Cast[]>;
+  currentUser: User;
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private castService: CastService
+  ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {
     this.casts = this.castService.getAll();
