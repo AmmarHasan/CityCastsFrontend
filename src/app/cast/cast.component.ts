@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Cast } from '../../model';
+import { Cast, User } from '../../model';
 import { CastService } from '../_service/cast.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CastService } from '../_service/cast.service';
 })
 export class CastComponent {
   @Input() cast: Cast;
-  currentUser;
+  currentUser: User;
 
   constructor(private castService: CastService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -17,9 +17,19 @@ export class CastComponent {
 
   solve() {
     this.castService.solveCast(this.cast).subscribe(data => {
-      console.log('solved');
-
       this.cast.solved = true;
     });
+  }
+
+  hasUpvoted() {
+    return this.cast.upvote.filter(user => user.username === this.currentUser.username).length;
+  }
+
+  upvote() {
+    this.castService.upvote(this.cast, this.currentUser);
+  }
+
+  downvote() {
+    this.castService.downvote(this.cast, this.currentUser);
   }
 }

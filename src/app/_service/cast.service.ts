@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Cast } from '../../model';
+import { Cast, User } from '../../model';
 
 
 @Injectable({
@@ -20,6 +20,19 @@ export class CastService {
 
   solveCast(cast: Cast) {
     cast.solved = true;
+    return this.http.put('http://localhost:3000/api/casts', cast);
+  }
+
+  upvote(cast: Cast, user: User) {
+    cast.upvote.push(user);
+    return this.http.put('http://localhost:3000/api/casts', cast);
+  }
+
+  downvote(cast: Cast, user: User) {
+    const index = cast.upvote.findIndex(u => u.username === user.username);
+    if (index > -1) {
+      cast.upvote.splice(index, 1);
+    }
     return this.http.put('http://localhost:3000/api/casts', cast);
   }
 }
