@@ -59,8 +59,8 @@ import { fakeBackendProvider } from './_helpers/fake-backend';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend
-    fakeBackendProvider,
-    // HttpClientModule
+    // fakeBackendProvider,
+    HttpClientModule
   ],
   bootstrap: [
     AppComponent,
