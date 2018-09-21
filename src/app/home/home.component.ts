@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { Cast, User } from '../../model';
 import { CastService } from '../_service/cast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
+    private router: Router,
     private castService: CastService
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -29,5 +31,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.casts = this.castService.getAll();
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
   }
 }
