@@ -1,4 +1,4 @@
-export class Citizen {
+export class User {
   name: String;
   username: String;
   password: String;
@@ -10,13 +10,13 @@ export class Citizen {
 export class Cast {
   constructor(
     public description: String,
-    public createdBy: Citizen,
+    public createdBy: User,
     public createdAt: Date,
     public city: String,
     public images?: Array<String>,
     public latitude?: Number,
     public longitude?: Number,
-    public upvote?: Array<Citizen>,
+    public upvote?: Array<User>,
     public solved?: Boolean,
     public id?: String
   ) { }
