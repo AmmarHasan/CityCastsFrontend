@@ -1,23 +1,38 @@
 <section class="background">
-    <div class="main">
-      <div class="title">
-        <span class="city">City</span>
-        <span class="casts">Casts</span>
-      </div>
-      <form>
-        <div class="field-wrapper">
-          <input type="text" name="name" placeholder="Name" />
-        </div>
-        <div class="field-wrapper">
-          <input type="text" name="username" placeholder="Username" />
-        </div>
-        <div class="field-wrapper">
-          <input type="password" name="password" placeholder="Password">
-        </div>
-        <div class="field-wrapper">
-          <input class="submit" type="submit" value="Signup">
-        </div>
-      </form>
-      <p routerLink="/login">Login</p>
+  <div class="main">
+    <div class="title">
+      <span class="city">City</span>
+      <span class="casts">Casts</span>
     </div>
-  </section>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="field-wrapper">
+        <input type="text" name="name" placeholder="Name" type="text" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+        </div>
+      </div>
+      <div class="field-wrapper">
+        <input type="text" name="username" placeholder="Username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="field-wrapper">
+        <input type="text" name="email" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
+      </div>
+      <div class="field-wrapper">
+        <input type="password" name="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <div class="field-wrapper">
+        <input class="submit" type="submit" value="Signup" [disabled]="loading">
+      </div>
+    </form>
+    <p routerLink="/login">Login</p>
+  </div>
+</section>

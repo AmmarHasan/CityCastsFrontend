@@ -13,6 +13,13 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CastComponent } from './cast/cast.component';
 import { NewCastComponent } from './new-cast/new-cast.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './_guard/auth.guard';
+import { AlertService, AuthenticationService, UserService } from './_services';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { fakeBackendProvider } from './_helpers/fake-backend';
 
 @NgModule({
   declarations: [
@@ -28,6 +35,9 @@ import { NewCastComponent } from './new-cast/new-cast.component';
     BrowserAnimationsModule,
     CommonModule,
     RoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -40,7 +50,18 @@ import { NewCastComponent } from './new-cast/new-cast.component';
     MatSelectModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider,
+    // HttpClientModule
+  ],
   bootstrap: [
     AppComponent,
     HomeComponent

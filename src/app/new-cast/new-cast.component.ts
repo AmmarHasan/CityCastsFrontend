@@ -17,6 +17,6 @@ export class NewCastComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+}
 
 }
