@@ -1,6 +1,6 @@
 <div class="container" [class.is-mobile]="(mobileQuery | async).matches">
     <mat-toolbar class="toolbar mat-elevation-z6">
-      <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      <button mat-icon-button><mat-icon>menu</mat-icon></button>
       <h1 class="app-name">City Casts</h1>
       <span style="flex:1 1 auto"></span>
       <a mat-icon-button [matMenuTriggerFor]="menu">
