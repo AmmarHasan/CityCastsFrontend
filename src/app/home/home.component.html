@@ -15,7 +15,7 @@
 
     <mat-sidenav-container class="sidenav-container"
         [style.marginTop.px]="(mobileQuery | async).matches ? 56 : 0">
-      <mat-sidenav #sidenav class="mat-elevation-z6"
+      <!-- <mat-sidenav #sidenav class="mat-elevation-z6"
           [opened]="(mobileQuery | async).matches ? false : true"
           [mode]="(mobileQuery | async).matches ? 'over' : 'side'"
           [fixedInViewport]="(mobileQuery | async).matches" fixedTopGap="56">
@@ -30,7 +30,7 @@
           <a mat-list-item routerLink=".">Solved</a>
           <a mat-list-item routerLink=".">Unsolved</a>
         </mat-nav-list>
-      </mat-sidenav>
+      </mat-sidenav> -->
       <mat-sidenav-content style="display: flex; flex-direction: column; align-items: center;">
         <ng-template ngFor let-cast [ngForOf]="casts | async">
           <app-cast [cast]="cast"></app-cast>
