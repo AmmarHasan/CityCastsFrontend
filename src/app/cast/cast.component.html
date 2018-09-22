@@ -23,7 +23,7 @@
   <mat-card-actions class="cast-actions">
     <button class="button-upvote" mat-raised-button matBadge="{{cast.upvote.length}}" matBadgePosition="after" matBadgeColor="accent"
       (click)="hasUpvoted()? downvote() : upvote()">
-      {{ hasUpvoted()? 'UPVOTE' : 'DOWNVOTE' }}
+      {{ hasUpvoted()? 'DOWNVOTE' : 'UPVOTE' }}
     </button>
     <button class="button-solve" mat-raised-button (click)="solve()"
       *ngIf="!cast.solved && cast.createdBy.username === currentUser.username">

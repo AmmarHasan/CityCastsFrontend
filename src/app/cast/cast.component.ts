@@ -22,7 +22,7 @@ export class CastComponent {
   }
 
   hasUpvoted() {
-    return this.cast.upvote.filter(user => user.username === this.currentUser.username).length;
+    return this.cast.upvote.filter(user => user.username === this.currentUser.username).length > 0;
   }
 
   upvote() {
