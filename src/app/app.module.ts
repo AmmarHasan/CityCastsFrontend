@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-  MatMenuModule, MatCardModule, MatBadgeModule, MatSelectModule, MatInputModule} from '@angular/material';
+  MatMenuModule, MatCardModule, MatBadgeModule, MatSelectModule, MatInputModule, MatSnackBarModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from './routing/routing.module';
 import { LoginComponent } from './login/login.component';
@@ -51,6 +51,7 @@ import { GravatarModule } from 'ngx-gravatar';
     MatBadgeModule,
     MatSelectModule,
     MatInputModule,
+    MatSnackBarModule,
     GravatarModule
   ],
   providers: [
